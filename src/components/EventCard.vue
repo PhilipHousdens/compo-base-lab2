@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-// defineProps<{
-//   msg: string
-// }>()
+import Event from '@/type/Event'
+defineProps<{
+  msg: Event
+}>()
 const event = ref({
   id: 5928101,
   category: 'animal welfare',
@@ -12,15 +13,15 @@ const event = ref({
   date: 'January 28, 2022',
   time: '12:00',
   petsAllowed: true,
-  organizer: 'Kat Laydee',
+  organizer: 'Kat Laydee'
 })
 </script>
 
 <template>
   <div class="event-class">
     <div class="event-card">
-      <h2>{{event.time}}</h2>
-      <span>@{{event.time}} on {{event.date}}</span>
+      <h2>{{ event.title }}</h2>
+      <span>@{{ event.time }} on {{ event.date }}</span>
     </div>
   </div>
 </template>
@@ -34,6 +35,6 @@ const event = ref({
 }
 .event-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0,0,0.2)
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 </style>
