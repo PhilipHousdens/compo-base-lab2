@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import Event from '@/type/Event'
 defineProps<{
-  msg: Event
+  event: Event
 }>()
 const event = ref({
   id: 5928101,
