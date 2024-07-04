@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
+import CategoryOrganizer from '@/components/CategoryOrganizer.vue'
 import Event from '@/types/Event'
 import { ref } from 'vue'
 
@@ -44,7 +45,11 @@ const events = ref<Event[]>([
   <h1>Events For Good</h1>
   <!-- New Element -->
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <div v-for="event in events" :key="event.id">
+      <EventCard :event="event" />
+      <CategoryOrganizer :category="event.category" :organizer="event.organizer" />
+    </div>
+    
   </div>
 </template>
 <style scoped>
