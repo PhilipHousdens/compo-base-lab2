@@ -1,13 +1,13 @@
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import EventService from '@/services/EventService';
-import {EventItem} from '@/type'
+import {EventItem} from '@/type/Event'
 const event = ref<EventItem | null>(null)
-const id: Ref<number> = ref(123)
-
-EventService.getEventById(id.value)
-    .then((response) => {
+const props = defineProps({
+    id: String
+})
+EventService.getEventById(Number(props.id)).then((response) => {
         event.value = response.data
     }).catch(error => {
         console.log(error)
