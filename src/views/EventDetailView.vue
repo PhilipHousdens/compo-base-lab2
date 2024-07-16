@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import EventService from '@/services/EventService';
-import {EventItem} from '@/type/Event'
+import {EventItem} from '@/type'
 const event = ref<EventItem | null>(null)
 const props = defineProps({
     id: String
