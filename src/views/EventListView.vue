@@ -24,12 +24,19 @@ onMounted(() => {
   <div class="events">
     <div v-for="event in events" :key="event.id">
       <EventCard :event="event" />
+      
+    </div>
+    <div v-for="event in events" :key="event.id">
       <CategoryOrganizer :category="event.category" :organizer="event.organizer" />
+      
     </div>
     
   </div>
 </template>
 <style scoped>
+h1 {
+  text-align: center;
+}
 .events {
   display: flex;
   flex-direction: column;
