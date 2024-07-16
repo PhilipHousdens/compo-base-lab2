@@ -4,7 +4,6 @@ import Students from '@/type/Event'
 defineProps<{
   student: Students
 }>()
-
 </script>
 
 <template>

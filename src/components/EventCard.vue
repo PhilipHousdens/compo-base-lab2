@@ -4,7 +4,6 @@ import Event from '@/type/Event'
 const props = defineProps<{
   event: Event
 }>()
-
 </script>
 
 <template>
