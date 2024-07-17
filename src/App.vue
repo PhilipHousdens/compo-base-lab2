@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
-const pageSize = ref(Number(route.query.pageSize) || 10)
+const pageSize = ref(Number(route.query.pageSize) || 2)
 
 function updatePageSize() {
   router.push({ name: 'event-list-view', query: { ...route.query, pageSize: pageSize.value, page: 1 } })
 }
+
+watch(() => route.query.pageSize, (newPageSize) => {
+  pageSize.value = Number(newPageSize) || 2
+})
 </script>
 
 <template>
