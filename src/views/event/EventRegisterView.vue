@@ -9,10 +9,16 @@ const props = defineProps<{
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { event } = toRefs(props)
 
+const register = () => {
+    // if the registration API call successful
+    // Push back to the event details view
+}
+
 </script>
 <template>
     <div class="description-container">
         <p> Register from here</p>
+        <button @click="register">Register</button>
     </div>
     
 </template>
