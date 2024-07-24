@@ -31,24 +31,24 @@ const router = createRouter({
     },
     {
       path: '/event/:id',
-      name: 'evnet-layout',
-      components: EventLayoutView,
+      name: 'event-layout',
+      component: EventLayoutView,
       props: true,
       children: [
         {
           path: '',
-          name: 'event-detail',
+          name: 'event-detail-view',
           component: EventDetailView,
           props: true
         },
         {
           path: 'edit',
-          name: 'event-edit',
+          name: 'event-edit-view',
           component: EventEditView,
         },
         {
           path: 'register',
-          name: 'event-register',
+          name: 'event-register-view',
           component: EventRegisterView,
           props: true
         },

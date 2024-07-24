@@ -1,18 +1,26 @@
 <script setup lang="ts">
 import { type Event } from '@/type'
-import type { PropType } from 'vue'
+import { toRefs } from 'vue'
 
-defineProps({
-    event: {
-        type: Object as PropType<Event>,
-        require: true
-    }
-})
+const props = defineProps<{
+    event: Event
+}>()
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { event } = toRefs(props)
 
 </script>
 <template>
-    <p> Register from here</p>
-</template>
-<style lang="">
+    <div class="description-container">
+        <p> Register from here</p>
+    </div>
     
+</template>
+<style>
+.description-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  text-align: center; /* Center text within the container */
+}   
 </style>

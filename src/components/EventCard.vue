@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Event from '@/type'
+import type { Event } from '@/type'
 const props = defineProps<{
   event: Event
 }>()
 </script>
 
 <template>
-  <RouterLink class="event-link" :to="{ name: 'event-detail', params: { id: props.event?.id } }">
+  <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: props.event?.id } }">
     <div class="event-class">
       <div class="event-card">
         <span>@{{ event?.time }} on {{ event?.date }}</span>

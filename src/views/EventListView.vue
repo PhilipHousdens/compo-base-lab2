@@ -2,7 +2,7 @@
 import EventCard from '@/components/EventCard.vue'
 import CategoryOrganizer from '@/components/CategoryOrganizer.vue'
 import EventItem from '@/types/Event'
-import { computed, ref, watch, watchEffect, type Ref } from 'vue'
+import { computed, onMounted, ref, watch, watchEffect, type Ref } from 'vue'
 import EventService from '@/services/EventService'
 import { useRoute } from 'vue-router'
 
@@ -15,14 +15,16 @@ const route = useRoute()
 
 const events: Ref<EventItem[]> = ref([])
 
-watchEffect(() => {
-  EventService.getEvents(props.pageSize, props.page)
+onMounted(() => {
+  watchEffect(() => {
+    EventService.getEvents(props.pageSize, props.page)
     .then((response) => {
       events.value = response.data
     })
     .catch((error) => {
       console.error('There was an error!', error)
     })
+  })
 })
 
 const hasNextPage = computed(() => {

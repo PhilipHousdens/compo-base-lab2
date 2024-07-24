@@ -20,16 +20,20 @@ EventService.getEventById(Number(props.id))
     <div v-if="event">
     <h1>{{ event.title }}</h1>
     <div id="nav">
-      <router-link :to="{name: 'event-detail', params: {id}}">Details</router-link>
+      <router-link :to="{name: 'event-detail-view'}">Details</router-link>
       |
-      <router-link :to="{name: 'event-register', params: { id }}">Register</router-link>
+      <router-link :to="{name: 'event-register-view'}">Register</router-link>
       |
-      <router-link :to="{name: 'event-edit', params: {id}}">Edit</router-link>
+      <router-link :to="{name: 'event-edit-view'}">Edit</router-link>
     </div>
    <router-view :event="event"></router-view>
   </div>
 </template>
 
-<style lang="">
-    
+<style>
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
