@@ -1,36 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 import { type Event } from '@/type'
-import EventService from '@/services/EventService'
-const event = ref<Event | null>(null)
+import type { PropType } from 'vue';
 
-const props = defineProps({
-    id: String
-})
-
-// Fetch event data based on props.id
-onMounted(async () => {
-    EventService.getEventById(Number(props.id))
-    .then((response) => {
-        event.value = response.data
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+defineProps ({
+    event: {
+        type: Object as PropType<Event>,
+        require: true
+    }
 })
 </script>
 <template>
-    <div v-if="event">
-        <h1>{{event.title}}</h1>
-        <div id="nav">
-            <router-link :to="{name: 'event-detail', params: { id }}">Details</router-link>
-            |
-            <router-link :to="{name: 'event-register', params: { id }}">Register</router-link>
-            |
-            <router-link :to="{name: 'event-edit', params: { id }}">Edit</router-link>
-        </div>
-        <p>Edit the event here</p>
-    </div>
+    <p>Edit the event here</p>
 </template>
 <style lang="">
     
