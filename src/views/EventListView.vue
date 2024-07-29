@@ -15,9 +15,10 @@ const route = useRoute()
 
 const events: Ref<EventItem[]> = ref([])
 
+const page = computed(() => props.page)
 onMounted(() => {
   watchEffect(() => {
-    EventService.getEvents(props.pageSize, props.page)
+    EventService.getEvents(props.pageSize, page.value)
     .then((response) => {
       events.value = response.data
     })
