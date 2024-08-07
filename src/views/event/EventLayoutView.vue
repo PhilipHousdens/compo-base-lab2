@@ -9,7 +9,7 @@ const { event } = storeToRefs(store)
 <template >
     <div v-if="event">
     <h1>{{ event.title }}</h1>
-    <div id="nav">
+    <div class="flex items-center justify-center">
       <router-link :to="{name: 'event-detail-view'}">Details</router-link>
       |
       <router-link :to="{name: 'event-register-view'}">Register</router-link>
@@ -21,9 +21,5 @@ const { event } = storeToRefs(store)
 </template>
 
 <style>
-#nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 </style>

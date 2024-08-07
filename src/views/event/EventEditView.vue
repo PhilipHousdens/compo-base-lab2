@@ -22,16 +22,11 @@ const edit = () => {
 const { event } = toRefs(props)
 </script>
 <template>
-    <div class="description-container">
-        <p>Edit the event here</p>
+    <div class="flex justify-center items-center text-center">
+        <p>Edit the event here&nbsp;</p>
         <button @click="edit">Edit</button>
     </div>
 </template>
 <style>
-.description-container {
-  display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  text-align: center; /* Center text within the container */
-}
+
 </style>
