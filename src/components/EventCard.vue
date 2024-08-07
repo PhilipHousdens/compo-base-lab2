@@ -7,9 +7,12 @@ const props = defineProps<{
 </script>
 
 <template>
-  <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: props.event?.id } }">
+  <RouterLink
+    class="event-link"
+    :to="{ name: 'event-detail-view', params: { id: props.event?.id } }"
+  >
     <div class="event-class">
-      <div class="event-card">
+      <div class="event-card hover:scale-101 hover:shadow-sp">
         <span>@{{ event?.time }} on {{ event?.date }}</span>
       </div>
     </div>

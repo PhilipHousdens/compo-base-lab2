@@ -1,26 +1,32 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
-import { useMessageStore } from './stores/message';
-import { storeToRefs } from 'pinia';
+import { useMessageStore } from './stores/message'
+import { storeToRefs } from 'pinia'
 const store = useMessageStore()
-const {message} = storeToRefs(store)
+const { message } = storeToRefs(store)
 
 const router = useRouter()
 const route = useRoute()
 const pageSize = ref(Number(route.query.pageSize) || 2)
 
 function updatePageSize() {
-  router.push({ name: 'event-list-view', query: { ...route.query, pageSize: pageSize.value, page: 1 } })
+  router.push({
+    name: 'event-list-view',
+    query: { ...route.query, pageSize: pageSize.value, page: 1 }
+  })
 }
 
-watch(() => route.query.pageSize, (newPageSize) => {
-  pageSize.value = Number(newPageSize) || 2
-})
+watch(
+  () => route.query.pageSize,
+  (newPageSize) => {
+    pageSize.value = Number(newPageSize) || 2
+  }
+)
 </script>
 
 <template>
-  <div id="layout">
+  <div class="text-center font-sans text-gray-700 antialias">
     <header>
       <div id="flashMessage" v-if="message">
         <h4>{{ message }}</h4>
@@ -46,13 +52,6 @@ watch(() => route.query.pageSize, (newPageSize) => {
 </template>
 
 <style>
-#layout {
-  font-family: Avenir, Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 nav {
   padding: 30px;
 }
