@@ -43,12 +43,12 @@ const hasNextPage = computed(() => {
     <div v-for="event in events" :key="event.id">
       <CategoryOrganizer :category="event.category" :organizer="event.organizer" />
     </div>
-    <div class="pagination">
+    <div class="flex w-[290px]">
       <RouterLink
         :to="{ name: 'event-list-view', query: { ...route.query, page: props.page - 1 } }"
         rel="prev"
         v-if="props.page != 1"
-        id="page-prev"
+        class="text-left"
       >
         Prev Page
       </RouterLink>
@@ -56,7 +56,7 @@ const hasNextPage = computed(() => {
         :to="{ name: 'event-list-view', query: { ...route.query, page: props.page + 1 } }"
         rel="next"
         v-if="hasNextPage"
-        id="page-next"
+        class="text-right"
       >
         Next Page
       </RouterLink>
