@@ -12,7 +12,9 @@ const props = defineProps<{
     :to="{ name: 'event-detail-view', params: { id: props.event?.id } }"
   >
     <div class="event-class">
-      <div class="event-card hover:scale-101 hover:shadow-sp">
+      <div
+        class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-6 hover:scale-101 hover:shadow-sp"
+      >
         <span>@{{ event?.time }} on {{ event?.date }}</span>
       </div>
     </div>
