@@ -19,12 +19,12 @@ const page = computed(() => props.page)
 onMounted(() => {
   watchEffect(() => {
     EventService.getEvents(props.pageSize, page.value)
-    .then((response) => {
-      events.value = response.data
-    })
-    .catch((error) => {
-      console.error('There was an error!', error)
-    })
+      .then((response) => {
+        events.value = response.data
+      })
+      .catch((error) => {
+        console.error('There was an error!', error)
+      })
   })
 })
 
@@ -34,9 +34,9 @@ const hasNextPage = computed(() => {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
+  <h1 class="text-green-500 text-2xl">Events For Good</h1>
   <!-- New Element -->
-  <div class="events">
+  <div class="flex flex-col items-center">
     <div v-for="event in events" :key="event.id">
       <EventCard :event="event" />
     </div>
@@ -45,7 +45,7 @@ const hasNextPage = computed(() => {
     </div>
     <div class="pagination">
       <RouterLink
-        :to="{ name: 'event-list-view', query: { ...route.query,page: props.page - 1 } }"
+        :to="{ name: 'event-list-view', query: { ...route.query, page: props.page - 1 } }"
         rel="prev"
         v-if="props.page != 1"
         id="page-prev"
@@ -53,7 +53,7 @@ const hasNextPage = computed(() => {
         Prev Page
       </RouterLink>
       <RouterLink
-        :to="{ name: 'event-list-view', query: { ...route.query,page: props.page + 1 } }"
+        :to="{ name: 'event-list-view', query: { ...route.query, page: props.page + 1 } }"
         rel="next"
         v-if="hasNextPage"
         id="page-next"
@@ -64,14 +64,6 @@ const hasNextPage = computed(() => {
   </div>
 </template>
 <style scoped>
-h1 {
-  text-align: center;
-}
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .pagination {
   display: flex;
   width: 290px;
