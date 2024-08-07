@@ -15,6 +15,9 @@ export default {
           '0%': { backgroundColor: 'yellow' },
           '100%': { backgroundColor: 'transparent' }
         }
+      },
+      colors: {
+        'custom-green': '#42b983'
       }
     },
     plugins: []

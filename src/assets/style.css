@@ -5,3 +5,7 @@
 h1 {
   @apply text-4xl mb-8;
 }
+
+.active {
+  @apply text-custom-green font-bold;
+}

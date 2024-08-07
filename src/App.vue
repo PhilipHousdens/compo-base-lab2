@@ -33,11 +33,10 @@ watch(
       </div>
       <div class="wrapper">
         <nav class="py-6">
-          <RouterLink class="font-bold text-gray-700" :to="{ name: 'event-list-view' }"
-            >Event</RouterLink
+          <RouterLink class="font-bold text-gray-700 focus:text-custom-green" :to="{ name: 'event-list-view' }" active-class="active">Event</RouterLink
           >
-          | <RouterLink class="font-bold text-gray-700" :to="{ name: 'about' }">About</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" :to="{ name: 'student-list-view' }"
+          | <RouterLink class="font-bold text-gray-700 focus:text-custom-green" :to="{ name: 'about' }" active-class="active" >About</RouterLink> |
+          <RouterLink class="font-bold text-gray-700 focus:text-custom-green" :to="{ name: 'student-list-view' } " active-class="active" 
             >Student</RouterLink
           >
         </nav>

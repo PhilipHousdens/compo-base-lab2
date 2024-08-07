@@ -34,7 +34,7 @@ const hasNextPage = computed(() => {
 </script>
 
 <template>
-  <h1 class="text-green-500 text-2xl">Events For Good</h1>
+  <h1 class="text-green-500 text-2xl text-center">Events For Good</h1>
   <!-- New Element -->
   <div class="flex flex-col items-center">
     <div v-for="event in events" :key="event.id">
