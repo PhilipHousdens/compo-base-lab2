@@ -22,17 +22,12 @@ const register = () => {
 
 </script>
 <template>
-    <div class="description-container">
+    <div class="flex justify-center items-center text-center">
         <p> Register from here</p>
         <button @click="register">Register</button>
     </div>
     
 </template>
 <style>
-.description-container {
-  display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  text-align: center; /* Center text within the container */
-}   
+ 
 </style>
