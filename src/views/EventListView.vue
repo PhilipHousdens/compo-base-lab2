@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
 import CategoryOrganizer from '@/components/CategoryOrganizer.vue'
-import EventItem from '@/types/Event'
+import type { Event } from '@/type'
 import { computed, onMounted, ref, watch, watchEffect, type Ref } from 'vue'
 import EventService from '@/services/EventService'
 import { useRoute } from 'vue-router'
@@ -13,7 +13,7 @@ const props = defineProps<{
 
 const route = useRoute()
 
-const events: Ref<EventItem[]> = ref([])
+const events: Ref<Event[]> = ref([])
 
 const page = computed(() => props.page)
 onMounted(() => {
