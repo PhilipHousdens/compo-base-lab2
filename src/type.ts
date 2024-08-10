@@ -11,12 +11,12 @@ export interface Event {
 }
 
 export interface Students {
-  id: String
-  studentId: String
-  name: String
-  surname: String
-  gpa: String
-  image: String
+  id: string
+  studentId: string
+  name: string
+  surname: string
+  gpa: string
+  image: string
 }
 
 export interface MessageState {

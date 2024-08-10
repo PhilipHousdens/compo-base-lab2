@@ -6,8 +6,7 @@ const props = defineProps<{
   event: Event
 }>()
 
-const { event } = toRefs(props) 
-
+const { event } = toRefs(props)
 </script>
 <template>
   <div v-if="event" class="flex justify-center items-center text-center">

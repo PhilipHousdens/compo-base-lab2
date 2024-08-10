@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import EventCard from '@/components/EventCard.vue'
 import CategoryOrganizer from '@/components/CategoryOrganizer.vue'
-import EventItem from '@/types/Event'
-import { computed, onMounted, ref, watch, watchEffect, type Ref } from 'vue'
+import type { Event } from '@/type'
+import { computed, onMounted, ref, watchEffect, type Ref } from 'vue'
 import EventService from '@/services/EventService'
 import { useRoute } from 'vue-router'
 
@@ -13,7 +13,7 @@ const props = defineProps<{
 
 const route = useRoute()
 
-const events: Ref<EventItem[]> = ref([])
+const events: Ref<Event[]> = ref([])
 
 const page = computed(() => props.page)
 onMounted(() => {
@@ -45,6 +45,7 @@ const hasNextPage = computed(() => {
     </div>
     <div class="flex w-[290px] justify-between">
       <RouterLink
+        class="text-left"
         :to="{ name: 'event-list-view', query: { ...route.query, page: props.page - 1 } }"
         rel="prev"
         v-if="props.page != 1"
@@ -53,30 +54,14 @@ const hasNextPage = computed(() => {
         Prev Page
       </RouterLink>
       <RouterLink
+        class="text-right"
         :to="{ name: 'event-list-view', query: { ...route.query, page: props.page + 1 } }"
         rel="next"
         v-if="hasNextPage"
-        class="text-right"
       >
         Next Page
       </RouterLink>
     </div>
   </div>
 </template>
-<style scoped>
-.pagination {
-  display: flex;
-  width: 290px;
-}
-.pagination a {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
-}
-#page-prev {
-  text-align: left;
-}
-#page-next {
-  text-align: right;
-}
-</style>
+<style></style>
