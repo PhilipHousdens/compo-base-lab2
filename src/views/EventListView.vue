@@ -49,7 +49,6 @@ const hasNextPage = computed(() => {
         :to="{ name: 'event-list-view', query: { ...route.query, page: props.page - 1 } }"
         rel="prev"
         v-if="props.page != 1"
-        class="text-left"
       >  
         Prev Page
       </RouterLink>
