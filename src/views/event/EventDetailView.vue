@@ -11,7 +11,7 @@ const { event } = toRefs(props)
 <template>
   <div v-if="event" class="flex justify-center items-center text-center">
     <div class="description">
-      <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
+      <p>{{ event.title }} @ {{ event.location }}</p>
       <p>{{ event.description }}</p>
     </div>
   </div>
