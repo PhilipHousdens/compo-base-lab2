@@ -16,10 +16,12 @@ const pageSize = ref(Number(route.query.pageSize) || 2)
 
 function updatePageSize() {
   router.push({
-    name: 'event-list-view',
+    name: route.name,
     query: { ...route.query, pageSize: pageSize.value, page: 1 }
   })
 }
+
+
 
 watch(
   () => route.query.pageSize,
@@ -39,6 +41,8 @@ watch(
       <div class="wrapper">
         <nav class="py-6">
          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'event-list-view'}">Event</RouterLink>
+         |
+         <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'organizer-list-view'}">Organizer</RouterLink>
          |
          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'about'}">About</RouterLink>
          |

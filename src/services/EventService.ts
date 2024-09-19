@@ -1,4 +1,3 @@
-import type { Organizer } from '@/type'
 import axios from 'axios'
 
 const apiClient = axios.create({
@@ -19,8 +18,5 @@ export default {
   },
   saveEvent(event: Event) {
     return apiClient.post('/events', event)
-  },
-  saveOrganizer(organizer: Organizer) {
-    return apiClient.post('/organizers', organizer)
   }
 }

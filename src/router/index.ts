@@ -13,6 +13,7 @@ import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
 import EventFormView from '@/views/event/EventFormView.vue'
 import OrganizerFormView from '@/views/event/OrganizerFormView.vue'
+import OrganizerListView from '@/views/OrganizerListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,15 @@ const router = createRouter({
       path: '/',
       name: 'event-list-view',
       component: EventListView,
+      props: (route) => ({ 
+        page: parseInt((route.query?.page as string) || '1'),
+        pageSize: parseInt((route.query.pageSize as string) || '2')
+      })
+    },
+    {
+      path: '/organizers',
+      name: 'organizer-list-view',
+      component: OrganizerListView,
       props: (route) => ({ 
         page: parseInt((route.query?.page as string) || '1'),
         pageSize: parseInt((route.query.pageSize as string) || '2')
