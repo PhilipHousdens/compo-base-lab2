@@ -35,11 +35,11 @@ function saveEvent() {
     <div>
         <h1>Create an event</h1>
         <form @submit.prevent="saveEvent" >
-            <label >Category</label>
+            <label >Name</label>
             <input type="text" v-model="event.category" placeholder="Category" class="field">
             <h3>Name & describe your event</h3>
             <label >Title</label>
-            <input type="text" v-model="event.tile" placeholder="Title" class="field">
+            <input type="text" v-model="event.title" placeholder="Title" class="field">
             <label>Description</label>
             <input type="text" v-model="event.description" placeholder="Description" class="field">
             <h3>Where is your event?</h3>
