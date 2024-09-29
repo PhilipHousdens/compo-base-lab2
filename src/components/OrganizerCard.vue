@@ -15,7 +15,7 @@ const props = defineProps<{
       <div
         class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-6 hover:scale-101 hover:shadow-sp"
       >
-        <span>{{ organizer?.name }} @ {{ organizer?.address }}</span>
+        <span>{{ organizer?.id }} @ {{ organizer?.name }}</span>
       </div>
     </div>
   </RouterLink>
