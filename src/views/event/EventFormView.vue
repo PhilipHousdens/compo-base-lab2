@@ -51,12 +51,12 @@ onMounted(() => {
 <template>
     <div class="flex justify-center flex-col items-center">
         <h1>Create an event</h1>
-        <form @submit.prevent="saveEvent" class=" bg-green-400 p-5 w-[35%] rounded-t-lg space-y-4 space-x-2 text-lg" >
+        <form @submit.prevent="saveEvent" class=" bg-green-400 p-5 w-[35%] rounded-t-lg space-y-4 space-x-2 text-lg " >
             <BaseInput type="text" v-model="event.category" label="Category"/>
             <h3>Name & describe your event</h3>
             <BaseInput type="text" v-model="event.title" label="Title"/>
             <BaseInput type="text" v-model="event.description" label="Description"/>
-            <h3>Where is your event?</h3>
+            <h3>Where is your event?</h3> 
             <BaseInput type="text" v-model="event.location" label="Location"/>
             <h3>Who is your organizer?</h3>
             <BaseSelect v-model="event.organizer.id" :options="organizers" label="Organizer"/>
