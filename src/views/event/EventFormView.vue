@@ -7,6 +7,7 @@ import BaseInput from '@/components/BaseInput.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import { useRouter } from 'vue-router';
 import { useMessageStore } from '@/stores/message';
+import ImageUpload from '@/components/ImageUpload.vue';
 const event = ref<Event>({
     id: 0, 
     category: '',
@@ -19,7 +20,8 @@ const event = ref<Event>({
     organizer: {
         id: 0,
         name: ''
-    }
+    },
+    images: []
 })
 const router = useRouter();
 const store = useMessageStore();
@@ -60,6 +62,8 @@ onMounted(() => {
             <BaseInput type="text" v-model="event.location" label="Location"/>
             <h3>Who is your organizer?</h3>
             <BaseSelect v-model="event.organizer.id" :options="organizers" label="Organizer"/>
+            <h3>The image of the Event</h3>
+            <ImageUpload v-model="event.images"/>
             <button class="button" type="submit">Submit</button>
         </form>
         <div class=" bg-black p-10 w-[35%] bg-opacity-50 rounded-b-lg text-white">
