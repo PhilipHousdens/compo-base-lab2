@@ -4,6 +4,10 @@ import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import { useMessageStore } from './stores/message'
 import { storeToRefs } from 'pinia'
 import { injectSpeedInsights } from '@vercel/speed-insights';
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiAccount, mdiAccountPlus, mdiLogin } from '@mdi/js';
+import path from 'path';
+
 
 injectSpeedInsights();
 
@@ -40,6 +44,27 @@ watch(
       <h1>Deploy with Vercel</h1>
       <div class="wrapper">
         <nav class="py-6">
+          <nav class="flex">
+            <ul class="flex navbar-nav ml-auto">
+              <li class="nav-item px-2">
+                <router-link to="/register" class="nav-link">
+                  <div class="flex items-center">
+                    <SvgIcon type="mdi" :path="mdiAccountPlus"/>
+                    <span class="ml-3">Sign Up</span>
+                  </div>
+                </router-link>
+              </li>
+              <li class="nav-item px-2">
+                <router-link to="/login" class="nav-link">
+                  <div class="flex items-center">
+                    <SvgIcon type="mdi" :path="mdiLogin"/>
+                    <span class="ml-3">Login</span>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+
+          </nav>
          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'event-list-view'}">Event</RouterLink>
          |
          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{name: 'organizer-list-view'}">Organizer</RouterLink>
