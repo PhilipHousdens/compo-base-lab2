@@ -13,7 +13,8 @@ export interface Event {
 
 export interface Organizer {
   id: number 
-  name: string 
+  name: string
+  images: string[] 
 }
 
 export interface Students {

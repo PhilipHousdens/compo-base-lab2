@@ -19,7 +19,8 @@ const event = ref<Event>({
     petAllowed: false,
     organizer: {
         id: 0,
-        name: ''
+        name: '',
+        images: []
     },
     images: []
 })

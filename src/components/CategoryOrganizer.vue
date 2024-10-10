@@ -1,27 +1,34 @@
-<template>
-  <div class="category-organizer">
-    <div class="text">{{ category }}</div>
-    <div class="text">{{ organizer }}</div>
-  </div>
-</template>
-
 <script setup lang="ts">
-defineProps<{
-  category: string
-  organizer: string
-}>()
-</script>
+import Uploader from 'vue-media-upload'
+import { ref } from 'vue'
+interface Props {
+    modelValue?: string[]
+}
 
-<style scoped>
-.category-organizer {
-  text-align: right;
-  padding: 20px;
-  width: 250px;
-  cursor: pointer;
-  border: 1px solid #39495c;
-  margin-bottom: 18px;
+const props = withDefaults(defineProps<Props>(), {
+    modelValue: () => []
+})
+const convertStringToMedia = (str: string[]): any => {
+    return str.map((element: string) => {
+        return {
+            name: element
+        }
+    })
 }
-.text {
-  font-size: 16px;
+const emit = defineEmits(['update:modelValue'])
+const convertMediaToString = (media: any): string[] => {
+    const output: string[] = []
+    media.forEach((element: any) => {
+        output.push(element.name)
+    })
+    return output
 }
-</style>
+const media = ref(convertStringToMedia(props.modelValue))
+const uploadUrl = ref(import.meta.env.VITE_UPLOAD_URL)
+const onChanged = (files: any) => {
+    emit('update:modelValue', convertMediaToString(files))
+}
+</script>
+<template>
+    <Uploader :server="uploadUrl" @change="onChanged" :media="media"></Uploader>
+</template>
