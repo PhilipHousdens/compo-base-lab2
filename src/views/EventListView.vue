@@ -58,8 +58,8 @@ function updateKeyword (value: string) {
   <!-- New Element -->
   <div class="flex flex-col items-center">
     <div class="w-64">
-          <BaseInput v-model="keyword" label="Search..." type="text" @input="updateKeyword" class="w-full"/>
-        </div>
+        <BaseInput v-model="keyword" label="Search" type="text" @input="updateKeyword" class="w-full"/>
+      </div>
     <div v-for="event in events" :key="event.id">
       <EventCard :event="event" />
     </div>
